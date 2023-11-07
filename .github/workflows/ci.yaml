@@ -15,10 +15,7 @@
 name: CI
 
 on:
-  push:
-    branches: [ boss ]
-  pull_request:
-    branches: [ boss ]
+ workflow_dispatch
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -109,5 +106,8 @@ jobs:
       run: echo "The complete ngrok URL is ${{ steps.ngrok.outputs.url }}"
 
     - name: Keep alive
-      run: sleep 300
+      run: sleep 3000
+
+    - name: Keep alive2
+      run: sleep 3000
 
